@@ -54,17 +54,17 @@ fi
 
 for i in $( seq 1 $NUMFILES)
 do
-	bash writer.sh "$WRITEDIR/${username}$i.txt" "$WRITESTR"
+	./writer.sh "$WRITEDIR/${username}$i.txt" "$WRITESTR"
 done
 
-OUTPUTSTRING=$( bash finder.sh "$WRITEDIR" "$WRITESTR")
+OUTPUTSTRING=$(./finder.sh "$WRITEDIR" "$WRITESTR")
 
 # remove temporary directories
 rm -rf /tmp/aeld-data
 
 set +e
 echo ${OUTPUTSTRING} | grep "${MATCHSTR}"
-if [ $? -ne 0 ]; then
+if [ $? -eq 0 ]; then
 	echo "success"
 	exit 0
 else
