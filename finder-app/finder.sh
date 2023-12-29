@@ -6,8 +6,7 @@
 
 #check if the number of arguments is correcrt
 
-if  [ $# -ne 2 ]
-then
+if  [ "$#" -ne 2 ]; then
 
    echo "Erro: Please porvide a correct number of arguments"
    exit 1
@@ -20,8 +19,7 @@ searchstr="$2"
 
 #check if the number of arguments is correcrt
 
-if [ ! -d "$filesdir" ]
-then 
+if [ ! -d "$filesdir" ]; then 
     echo "Error : the file $filesdir dosenot exist "
     exit 1
 fi
